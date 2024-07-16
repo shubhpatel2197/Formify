@@ -10,16 +10,16 @@ import { eq } from 'drizzle-orm'
 
 export default  async function Home() {
 
-  const session = await auth();
-  const userId = session?.user?.id;
-  if (!userId) {
-    return null;
-  }
-  const subscription = await getUserSubscription({ userId });
-  const userForms = await db.query.forms.findMany({
-    where: eq(forms.userId, userId)
-  })
-  const userFormsCount = userForms.length;
+  // const session = await auth();
+  // const userId = session?.user?.id;
+  // if (!userId) {
+  //   return null;
+  // }
+  // const subscription = await getUserSubscription({ userId });
+  // const userForms = await db.query.forms.findMany({
+  //   where: eq(forms.userId, userId)
+  // })
+  const userFormsCount = 0;
  
   return (
     <SessionProvider>
