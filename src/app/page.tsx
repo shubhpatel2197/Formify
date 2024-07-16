@@ -25,7 +25,7 @@ export default  async function Home() {
     <SessionProvider>
       <Header />
       <main className="flex min-h-screen flex-col items-center relative p-24 bg:dark z-10 antialiased">
-        {/* <LandingPage  cnt={userFormsCount} /> */}
+        <LandingPage  cnt={userFormsCount} />
       </main>
     </SessionProvider>
   );
