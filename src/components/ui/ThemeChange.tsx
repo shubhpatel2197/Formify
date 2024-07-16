@@ -31,7 +31,7 @@ export function ThemeChange() {
   const storedThemeString = localStorage.getItem("ai-form-builder-theme");
   const selectedTheme = storedThemeString
     ? JSON.parse(storedThemeString)
-    : blueTheme;
+    : violetTheme;
 
   const [theme, setTheme] = useState(selectedTheme);
 
