@@ -5,7 +5,6 @@ type NavLink = {
   href: string;
   disabled?: boolean;
 };
-
 type SidebarNavItem = {
   title: string;
   disabled?: boolean;
