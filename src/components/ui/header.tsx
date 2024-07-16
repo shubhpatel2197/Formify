@@ -3,7 +3,7 @@ import { auth, signOut } from "@/auth";
 import { Button } from "./button";
 import Image from "next/image";
 import Link from "next/link";
-import { ThemeChange } from "./ThemeChange";
+// import { ThemeChange } from "./ThemeChange";
 import { LayoutDashboard, LogOut } from "lucide-react";
 
 type Props = {
@@ -38,7 +38,7 @@ const Header = async () => {
           <div>
             {session?.user ? (
               <div className="flex items-center gap-1 md:gap-1 lg:gap-4">
-                <ThemeChange />
+                {/* <ThemeChange /> */}
                 <Link href={`/view-forms`}>
                   <Button variant="outline">
                     <span className="hidden md:inline">Dashboard</span>{" "}
