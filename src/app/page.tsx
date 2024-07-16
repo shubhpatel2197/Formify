@@ -22,11 +22,14 @@ export default  async function Home() {
   const userFormsCount = userForms.length;
  
   return (
-    <SessionProvider>
-      <Header />
-      <main className="flex min-h-screen flex-col items-center relative p-24 bg:dark z-10 antialiased">
-        <LandingPage  cnt={userFormsCount} />
-      </main>
-    </SessionProvider>
+    // <SessionProvider>
+    //   <Header />
+    //   <main className="flex min-h-screen flex-col items-center relative p-24 bg:dark z-10 antialiased">
+    //     <LandingPage  cnt={userFormsCount} />
+    //   </main>
+    // </SessionProvider>
+    <>
+    <h1>Hi</h1>
+    </>
   );
 }
