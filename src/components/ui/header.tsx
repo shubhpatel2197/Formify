@@ -58,7 +58,7 @@ const Header = async () => {
               </div>
             ) : (
               <div className="flex">
-                <ThemeChange />
+                {/* <ThemeChange /> */}
                 <Link href="/api/auth/signin">
                   <Button variant="link" className="text-md">
                     Sign in
