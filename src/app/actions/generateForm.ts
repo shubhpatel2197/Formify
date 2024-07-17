@@ -57,7 +57,7 @@ export async function generateForm(
   // console.log(`User ID: ${userId}`);
   // console.log(`Number of forms: ${userForms.length}`);
 
-  if (userForms.length >= 3) {
+  if (userForms.length >= 3 && !subscription) {
     console.log("User has reached the form limit");
     return {
       message: "Upgrade Plan",
