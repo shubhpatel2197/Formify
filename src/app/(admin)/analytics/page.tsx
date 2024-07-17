@@ -25,7 +25,7 @@ const page = async (props: Props) => {
     <div >
       <iframe
         plausible-embed="true"
-        src="https://plausible.io/formify-gold.vercel.app?embed=true&theme=dark&background=transparent"
+        src="https://plausible.io/formify-gold.vercel.app/analytics?embed=true&theme=dark&background=transparent"
         scrolling="no"
         frameBorder="0"
         loading="lazy"
