@@ -33,11 +33,7 @@ export default async function AdminLayout({ children }: {
         href: "/analytics",
         icon: "lineChart",
       },
-      {
-        title: "Charts",
-        href: "/charts",
-        icon: "pieChart",
-      },
+     
       {
         title: "Settings",
         href: "/settings",
