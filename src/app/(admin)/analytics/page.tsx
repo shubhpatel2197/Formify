@@ -1,51 +1,45 @@
-import React from 'react'
+import React, { useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 import { auth, signIn } from '@/auth';
 import { db } from '@/db';
 import { users } from '@/db/schema';
 import { eq } from 'drizzle-orm';
+import { forms } from '@/db/schema'
+import { getUserSubscription } from '@/app/actions/userSubscriptions'
+import { Button } from '@/components/ui/button';
 
 type Props = {}
 
-const page = async (props: Props) => {
+const Page = async (props: Props) => {
 
   const session = await auth();
 
-  if (!session || !session.user || !session.user.id) {
+  const userId = session?.user?.id;
+  if (!userId) {
     signIn();
-    return null;
+    return;
   }
 
-  const user = await db.query.users.findFirst({
-    where: eq(users.id, session.user.id)
-  })
-
-  const plan = user?.subscribed ? 'premium' : 'free';
+  const subscription = await getUserSubscription({ userId });
+ 
+  // console.log(`User ID: ${userId}`);
+  // console.log(`Number of forms: ${userForms.length}`);
 
   return (
-    <div >
-      <iframe
-        plausible-embed="true"
-        src="https://plausible.io/formify-gold.vercel.app/analytics?embed=true&theme=dark&background=transparent"
-        scrolling="no"
-        frameBorder="0"
-        loading="lazy"
-        style={{ width: '1px', minWidth: '100%', height: '1600px' }}
-      ></iframe>
-
-      <div style={{ fontSize: '14px', paddingBottom: '14px' }}>
-        Stats powered by{' '}
-        <a
-          target="_blank"
-          rel="noopener noreferrer"
-          style={{ color: '#4F46E5', textDecoration: 'underline' }}
-          href="https://plausible.io"
-        >
-          Plausible Analytics
+    <div>
+    {!subscription && (
+      <div>Upgrade to premium to view analytics</div>
+    )}
+    {subscription && (
+      <>
+         <a href="https://plausible.io/formify-gold.vercel.app/" target="_blank" rel="noopener noreferrer">
+          <Button>View Analytics</Button>
         </a>
-      </div>
-      <script async src="https://plausible.io/js/embed.host.js"></script>
-      </div>
+        <h1>Go to view pages and watch analytics of your form</h1> 
+      </>
+    )}
+  </div>
   )
 }
 
-export default page
+export  default Page;

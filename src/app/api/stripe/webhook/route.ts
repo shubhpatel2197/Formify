@@ -11,8 +11,7 @@ const relevantEvents = new Set([
   "customer.subscription.deleted",
   "customer.subscription.created",
 ]);
-console.log(99)
-console.log(process.env.STRIPE_WEBHOOK)
+
 export async function POST(
   req: Request
 ) {
@@ -41,10 +40,10 @@ export async function POST(
     .object as Stripe.Subscription;
     
   if (relevantEvents.has(event.type)) {
-    console.log(event.type)
+    
     switch (event.type) {
       case "checkout.session.completed": {
-        console.log(data.customer)
+       
         await createSubscription({
           stripeCustomerId:
             data.customer as string,
