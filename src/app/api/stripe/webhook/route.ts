@@ -11,7 +11,7 @@ const relevantEvents = new Set([
   "customer.subscription.deleted",
   "customer.subscription.created",
 ]);
-
+console.log(99)
 export async function POST(
   req: Request
 ) {
@@ -38,10 +38,12 @@ export async function POST(
 
   const data = event.data
     .object as Stripe.Subscription;
-
+    
   if (relevantEvents.has(event.type)) {
+    console.log(event.type)
     switch (event.type) {
       case "customer.subscription.created": {
+        console.log(data.customer)
         await createSubscription({
           stripeCustomerId:
             data.customer as string,
