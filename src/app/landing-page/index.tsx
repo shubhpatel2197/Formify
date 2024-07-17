@@ -42,7 +42,7 @@ const words = [
 ];
 
 const LandingPage: React.FC<Props> = (props) => {
-  console.log(props.cnt)
+  //  console.log(props.cnt)
   return (
     <div>
       <BackgroundBeams />

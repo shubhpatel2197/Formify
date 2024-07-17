@@ -31,7 +31,7 @@ const ResultsDisplay = async ({ formId }: Props) => {
 
   if (!form) return null;
   if (!form.submissions) return <p>No submissions on this form yet!</p>;
-  console.log('form', form);
+  // console.log('form', form);
   return (
     <div>
       <Table

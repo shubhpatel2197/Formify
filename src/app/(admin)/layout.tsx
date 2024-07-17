@@ -47,16 +47,14 @@ export default async function AdminLayout({ children }: {
   }
   // const session = await auth();
   // const userId = session?.user?.id;
-
-  // if (!userId) {
-  //   return null; // Handle redirection or error
-  // }
-
-  // const subscription = await getUserSubscription({ userId });
-  // const userForms = await db.query.forms.findMany({
-  //   where: eq(forms.userId, userId)
-  // });
-  const userFormsCount = 0;
+    let userFormsCount=0;
+  //     if(userId){
+  //     const subscription = await getUserSubscription({ userId });
+  //     const userForms = await db.query.forms.findMany({
+  //       where: eq(forms.userId, userId)
+  //     });
+  //   userFormsCount =userForms.length;
+  //   }
 
   return (
     <div className="flex min-h-screen flex-col space-y-6">

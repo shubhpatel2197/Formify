@@ -56,18 +56,19 @@ const FormGenerator =   (props: Props) => {
   const plausible = usePlausible();
 
   useEffect(() => {
-    if (state.message === "success") {
+    if (state?.message === "success") {
       setOpen(false);
       navigate(state.data.formId);
     }
 
-  }, [state.message,state.data?.formId])
+  }, [state?.message,state?.data?.formId])
   // const userId=session.data?.user;
   // const { data: forms, error } = useSWR(`/api/user/forms?userId=${userId}`, fetcher);
   // const formCount = forms ? forms.length : 0; // Handle case where forms might be undefined
 
   const onFormCreate = () => {
     plausible('create-form')
+    console.log(props.cnt)
     if (session.data?.user){
       if(props.cnt<3){
         setOpen(true);
