@@ -21,7 +21,7 @@ export async function POST(
     "stripe-signature"
   ) as string;
   if (
-    !process.env.STRIPE_WEBHOOK_SERCRET
+    !process.env.STRIPE_WEBHOOK
   ) {
     throw new Error(
       "STRIPE_WEBHOOK_SECRET is not set"
@@ -34,7 +34,7 @@ export async function POST(
     stripe.webhooks.constructEvent(
       body,
       sig,
-      process.env.STRIPE_WEBHOOK_SERCRET
+      process.env.STRIPE_WEBHOOK
     );
 
   const data = event.data
