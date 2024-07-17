@@ -12,7 +12,7 @@ const relevantEvents = new Set([
   "customer.subscription.created",
 ]);
 console.log(99)
-console.log(process.env.STRIPE_WEBHOOK_SERCRET)
+console.log(process.env.DATABASE_URL)
 export async function POST(
   req: Request
 ) {
