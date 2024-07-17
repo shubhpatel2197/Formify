@@ -27,7 +27,7 @@ import {
 import { Palette } from "lucide-react";
 
 export function ThemeChange() {
-  const [selectedTheme,setselectedtheme]=useState(neutralTheme)
+  const [selectedTheme,setselectedtheme]=useState(redTheme)
   const [theme, setTheme] = useState(selectedTheme);
 
   // useEffect(()=>{
