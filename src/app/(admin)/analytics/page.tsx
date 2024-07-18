@@ -35,7 +35,7 @@ const Page = async (props: Props) => {
          <a href="https://plausible.io/formify-gold.vercel.app/" target="_blank" rel="noopener noreferrer">
           <Button>View Analytics</Button>
         </a>
-        <h1>Go to view pages and watch analytics of your form</h1> 
+        <h1 className='py-4'>Go to Top pages and watch analytics of your forms</h1> 
       </>
     )}
   </div>
