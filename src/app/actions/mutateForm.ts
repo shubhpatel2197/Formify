@@ -13,7 +13,7 @@ interface SaveFormData extends Form {
   questions: Array<Question & { fieldOptions?: FieldOption[] }>;
 }
 
-const CHUNK_SIZE = 5; // Adjust this size based on your needs
+const CHUNK_SIZE = 10; // Adjust this size based on your needs
 
 async function insertInChunks<T>(tx: any, items: T[], insertFn: (item: T) => Promise<void>) {
   for (let i = 0; i < items.length; i += CHUNK_SIZE) {

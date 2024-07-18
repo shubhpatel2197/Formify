@@ -92,7 +92,7 @@ export async function generateForm(
     const json = await response.json();
    
     const responseObj = JSON.parse(json.choices[0].message.content);
-    
+    console.log(responseObj)
     const dbFormId = await saveForm({
       name: responseObj.name,
       description: responseObj.description,
