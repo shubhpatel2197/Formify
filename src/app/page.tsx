@@ -31,3 +31,8 @@ export default  async function Home() {
     
   );
 }
+
+export const metadata = {
+  title: "Formify",
+  description: "My description",
+}
