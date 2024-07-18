@@ -49,13 +49,14 @@ const Form = (props: Props) => {
         } else {
           textValue = value as string;
         }
-
+        
         answers.push({
           questionId: id,
           fieldOptionsId,
           value: textValue
         })
       }
+      console.log(Object.entries(data))
 
       const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000';
 
