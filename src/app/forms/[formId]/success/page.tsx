@@ -12,4 +12,9 @@ const page = () => {
   )
 }
 
+export const metadata = {
+  title: "Formify",
+  description: "Generate and publish forms with the help of AI",
+}
+
 export default page

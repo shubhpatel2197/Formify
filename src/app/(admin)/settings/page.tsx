@@ -29,3 +29,8 @@ const page = async (props: Props) => {
 }
 
 export default page
+
+export const metadata = {
+  title: "Formify",
+  description: "Generate and publish forms with the help of AI",
+}

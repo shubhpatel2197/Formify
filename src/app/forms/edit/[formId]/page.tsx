@@ -42,4 +42,10 @@ const page = async ({ params }: {
     <Form form={form} editMode={true} />
   )
 }
+
+export const metadata = {
+  title: "Formify",
+  description: "Generate and publish forms with the help of AI",
+}
+
 export default page;
