@@ -13,6 +13,15 @@ interface SaveFormData extends Form {
   questions: Array<Question & { fieldOptions?: FieldOption[] }>;
 }
 
+const CHUNK_SIZE = 5; // Adjust this size based on your needs
+
+async function insertInChunks<T>(tx: any, items: T[], insertFn: (item: T) => Promise<void>) {
+  for (let i = 0; i < items.length; i += CHUNK_SIZE) {
+    const chunk = items.slice(i, i + CHUNK_SIZE);
+    await Promise.all(chunk.map(insertFn));
+  }
+}
+
 export async function saveForm(data: SaveFormData) {
   const { name, description, questions } = data;
   const session = await auth();
@@ -29,32 +38,35 @@ export async function saveForm(data: SaveFormData) {
     .returning({ insertedId: forms.id });
   const formId = newForm[0].insertedId;
 
-  // TODO: add questions and options
-  const newQuestions = data.questions.map((question) => {
-    return {
-      text: question.text,
-      fieldType: question.fieldType,
-      fieldOptions: question.fieldOptions,
-      formId,
-    };
-  });
+  const newQuestions = questions.map((question) => ({
+    text: question.text,
+    fieldType: question.fieldType,
+    formId,
+    fieldOptions: question.fieldOptions,
+  }));
 
   await db.transaction(async (tx) => {
-    for (const question of newQuestions) {
+    await insertInChunks(tx, newQuestions, async (question) => {
       const [{ questionId }] = await tx
         .insert(dbQuestions)
-        .values(question)
+        .values({
+          text: question.text,
+          fieldType: question.fieldType,
+          formId: question.formId,
+        })
         .returning({ questionId: dbQuestions.id });
+
       if (question.fieldOptions && question.fieldOptions.length > 0) {
-        await tx.insert(fieldOptions).values(
-          question.fieldOptions.map((option) => ({
-            text: option.text,
-            value: option.value,
-            questionId,
-          }))
-        );
+        const options = question.fieldOptions.map((option) => ({
+          text: option.text,
+          value: option.value,
+          questionId,
+        }));
+        await insertInChunks(tx, options, async (option: FieldOption) => {
+          await tx.insert(fieldOptions).values(option);
+        });
       }
-    }
+    });
   });
 
   return formId;
