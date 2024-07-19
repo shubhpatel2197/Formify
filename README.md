@@ -5,7 +5,7 @@ Formify is an AI-powered form builder developed with Next.js, Next-auth, Shadcn 
 ## Tech Stack 
 
 - Next-auth - authentication
-- Shadcn ui - ui library
+- Shadcn UI - UI library
 - Open Al - AI Integration
 - Drizzle - Orm
 - PostgreSQL - database
