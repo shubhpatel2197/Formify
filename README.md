@@ -1,34 +1,41 @@
-# Formify
+<h1 align="center">Formify</h1>
 
-Formify is an AI-powered form builder developed with Next.js, Next-auth, Shadcn UI, OpenAI, Drizzle, PostgreSQL, and Stripe. This application enables users to effortlessly create customized forms by providing prompts. Once created, these forms can be published for others to complete. Form admins have access to all submitted responses and can view detailed analytics related to the forms. Free users can generate up to three forms, after which an upgrade to a premium plan is required to create additional forms.
+<p align="center">
+  AI-powered form builder crafted with Next.js, Next-Auth, Shadcn&nbsp;UI, OpenAI, Drizzle, PostgreSQL, and Stripe.
+</p>
 
-## Tech Stack 
+---
 
-- Next-auth - authentication
-- Shadcn UI - UI library
-- Open Al - AI Integration
-- Drizzle - Orm
-- PostgreSQL - database
-- Stripe - payments
-- Tanstack - Table
-- Typescript - Type Checking
-- Plausible - Analytics
-- Vercel - Deployment
-- Stripe - Payments
-- Zod - Schema Validation
+## 🚀 What is Formify?
+Formify turns a short prompt into a fully-fledged form. Publish it for others to complete, then manage responses and analytics in your admin panel.  
+*Free users can create up to **three** forms—upgrade anytime for more.*
 
-## Features
+---
 
-- Authentication 
-- AI Form Generation 
-- Form Publish and Submissions 
-- View your forms 
-- Admin Panel 
-- View Results 
-- Settings & Upgrade Subscription 
+## 🧰 Tech Stack
+| Layer            | Tech |
+| ---------------- | ---- |
+| Framework        | **Next.js** |
+| Auth             | **Next-Auth** |
+| UI               | **Shadcn UI** |
+| AI Integration   | **OpenAI** |
+| ORM              | **Drizzle** |
+| Database         | **PostgreSQL** |
+| Payments         | **Stripe** |
+| Tables           | **TanStack Table** |
+| Type Checking    | **TypeScript** |
+| Analytics        | **Plausible** |
+| Deployment       | **Vercel** |
+| Validation       | **Zod** |
+
+---
+
+## ✨ Features
+- Authentication  
+- AI form generation  
+- Form publishing & submissions  
+- View your forms list  
+- Admin panel  
+- View results  
+- Settings & subscription upgrade  
 - Analytics  
-
-
-
-
-
